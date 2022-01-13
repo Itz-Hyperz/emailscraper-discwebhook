@@ -1,0 +1,15 @@
+{
+  "name": "emailscraper-discwebhook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hyperz#0001",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^13.5.1",
+    "mail-listener-fixed2": "^1.0.2"
+  }
+}
