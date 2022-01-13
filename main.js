@@ -49,30 +49,30 @@ mailListener.on("mail", async function(mail, seqno, attributes){
     let mailAuthor = mail.from.text.split('<')[1]
     if(mailAuthor.includes(emailsToLog)) {
         let subject;
-    let text;
-    if(!mail.subject) {
-        subject = 'No subject found.'
-    } else {
-        subject = mail.subject
-    }
-    if(!mail.text) {
-        text = 'No text found.'
-    } else {
-        text = mail.text
-    }
-    const mailEmbed = new Discord.MessageEmbed()
-    .setColor('#036ffc')
-    .setTitle('New Email!')
-    .setDescription(`**Subject:**\n${subject}\n\n**Content:**\n${text}`)
-    .setTimestamp()
-    try { mailEmbed.setThumbnail(imageurl) } catch(e) {}
-    await webhookClient.send({
-        username: 'Northmen Emails [NEWS]',
-        avatarURL: imageurl,
-        embeds: [mailEmbed]
-    }).catch(e => {
-        console.log(`Webhook Sending Error: `, e)
-    });
+        let text;
+        if(!mail.subject) {
+            subject = 'No subject found.'
+        } else {
+            subject = mail.subject
+        }
+        if(!mail.text) {
+            text = 'No text found.'
+        } else {
+            text = mail.text
+        }
+        const mailEmbed = new Discord.MessageEmbed()
+        .setColor('#036ffc')
+        .setTitle('New Email!')
+        .setDescription(`**Subject:**\n${subject}\n\n**Content:**\n${text}`)
+        .setTimestamp()
+        try { mailEmbed.setThumbnail(imageurl) } catch(e) {}
+        await webhookClient.send({
+            username: 'Northmen Emails [NEWS]',
+            avatarURL: imageurl,
+            embeds: [mailEmbed]
+        }).catch(e => {
+            console.log(`Webhook Sending Error: `, e)
+        });
     }
 });
 
