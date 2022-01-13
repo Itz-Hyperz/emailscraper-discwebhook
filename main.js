@@ -43,6 +43,11 @@ mailListener.on("server:disconnected", function(){
 // If it encounters an error
 mailListener.on("error", function(err){
     console.log(err);
+    try {
+        mailListener.start()
+    } catch(e) {
+        console.log(`CAUGHT TRY CATCH ERROR (line 47): `, err)
+    }
 });
 
 mailListener.on("mail", async function(mail, seqno, attributes){
