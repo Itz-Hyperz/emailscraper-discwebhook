@@ -9,6 +9,10 @@ const mailListener = new MailListener(config.mailSettings);
 // Start the listener
 mailListener.start();
 
+setInterval(() => {
+    mailListener.start()
+}, 3600000) // Every hour restart
+
 console.log(`Scraper Started!\nMade by Hyperz#0001`)
 
 // When it gets connected to the server
